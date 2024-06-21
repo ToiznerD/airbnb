@@ -11,6 +11,7 @@ import Heading from '../Heading';
 import Input from '../inputs/input';
 import toast from 'react-hot-toast';
 import Button from '../Button';
+import { signIn } from 'next-auth/react';
 
 
 const RegisterModal = () => {
@@ -87,13 +88,21 @@ const RegisterModal = () => {
                 outline
                 label="Continue with Google"
                 icon={FcGoogle}
-                onClick={() => { }}
+                onClick={() => {
+                    console.log('GITHUB_ID:', process.env.GITHUB_ID);
+                    console.log('GITHUB_SECRET:', process.env.GITHUB_SECRET);
+                    console.log('GOOGLE_CLIENT_ID:', process.env.GOOGLE_CLIENT_ID);
+                    console.log('GOOGLE_CLIENT_SECRET:', process.env.GOOGLE_CLIENT_SECRET);
+                    console.log('NEXTAUTH_SECRET:', process.env.NEXTAUTH_SECRET);
+                    console.log('Hello')
+                    signIn('google')
+                }}
             />
             <Button
                 outline
                 label="Continue with Github"
                 icon={AiFillGithub}
-                onClick={() => { }}
+                onClick={() => signIn('github')}
             />
             <div className="text-neutral-500 text-center mt-4 font-light">
                 <div className="justify-center flex flex-row items-center gap-2">
