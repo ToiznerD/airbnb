@@ -12,7 +12,7 @@ const Avatar = ({ src } : Props) => {
             className="rounded-full"
             height="30"
             width="30"
-            alt="Avatar"
+            alt={"Avatar"}
             src={src || "/images/placeholder.jpg"}
         />
      );
